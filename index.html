@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amorette Floral Co. — Romantic Wedding Florals</title>
+  <meta name="description" content="Romantic, garden‑inspired florals for weddings & events in Dallas–Fort Worth." />
+  <meta property="og:title" content="Amorette Floral Co." />
+  <meta property="og:description" content="Romantic, garden‑inspired florals for weddings & events." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="assets/favicon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#">Amorette Floral Co.</a>
+      <nav class="links">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="btn">Inquire</a>
+      </nav>
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <h1>Romantic, garden‑inspired florals for weddings & events.</h1>
+        <p>Timeless palettes, lush textures, and effortless designs tailored to your day. Serving Dallas–Fort Worth and beyond.</p>
+        <div class="cta">
+          <a class="btn" href="#contact">Get a Quote</a>
+          <a class="btn outline" href="#work">View Gallery</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="assets/hero-placeholder.jpg" alt="Lush bridal bouquet">
+      </div>
+    </div>
+  </section>
+
+  <!-- Work / Gallery -->
+  <section id="work" class="section">
+    <div class="container">
+      <h2>Recent Work</h2>
+      <p class="sub">A small selection of weddings and editorials.</p>
+      <div class="grid">
+        <img src="assets/placeholder-1.jpg" alt="Bouquet">
+        <img src="assets/placeholder-2.jpg" alt="Ceremony arch">
+        <img src="assets/placeholder-3.jpg" alt="Centerpieces">
+        <img src="assets/placeholder-4.jpg" alt="Boutonnières">
+        <img src="assets/placeholder-5.jpg" alt="Aisle florals">
+        <img src="assets/placeholder-6.jpg" alt="Sweetheart table">
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section alt">
+    <div class="container about">
+      <img class="about-photo" src="assets/about-placeholder.jpg" alt="Designer portrait">
+      <div>
+        <h2>Hi, I’m Diana.</h2>
+        <p>I founded Amorette Floral Co. to create romantic, garden‑inspired designs that feel personal and effortless. I partner closely with planners and couples to translate your story into flowers.</p>
+        <ul class="list">
+          <li>Custom design plan & moodboard</li>
+          <li>On‑site installation & strike</li>
+          <li>Sustainable mechanics wherever possible</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="container narrow">
+      <h2>Send us an Inquiry</h2>
+      <p class="sub">Tell us about your event—typically we reply within 1–2 business days.</p>
+      <form action="https://formspree.io/f/xrbyjjll" method="POST" class="form">
+        <div class="row">
+          <label>
+            <span>Name</span>
+            <input name="name" required placeholder="Your name" />
+          </label>
+          <label>
+            <span>Email</span>
+            <input name="email" type="email" required placeholder="you@email.com" />
+          </label>
+        </div>
+        <div class="row">
+          <label>
+            <span>Event date</span>
+            <input name="date" placeholder="MM / DD / YYYY" />
+          </label>
+          <label>
+            <span>Venue / Location</span>
+            <input name="venue" placeholder="Venue or city" />
+          </label>
+        </div>
+        <div class="row">
+          <label>
+            <span>Budget</span>
+            <input name="budget" placeholder="e.g. $3,000–$5,000" />
+          </label>
+          <label>
+            <span>How did you hear about us?</span>
+            <input name="referral" placeholder="Instagram, friend, etc." />
+          </label>
+        </div>
+        <label class="full">
+          <span>What are you envisioning?</span>
+          <textarea name="message" rows="5" placeholder="Palette, must‑have florals, guest count…"></textarea>
+        </label>
+        <button class="btn" type="submit">Send Inquiry</button>
+        <input type="hidden" name="_subject" value="New inquiry from website" />
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Amorette Floral Co.</strong><br>
+        Dallas–Fort Worth · <a href="mailto:diana@amorettefloral.com">diana@amorettefloral.com</a>
+      </div>
+      <div class="small">© 2025 Amorette Floral Co.</div>
+    </div>
+  </footer>
+</body>
+</html>
