@@ -3,7 +3,7 @@
   --bg:#fff6fb;
   --text:#1f2937;
   --muted:#6b7280;
-  --accent:#B5C9B8; /* sage */
+  --accent:#58641f; /* sage */
   --border:#e5e7eb;
   --alt:#fafaf9;
   --radius:14px;
@@ -12,8 +12,27 @@
 
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
-body{font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,Helvetica,sans-serif;color:var(--text);background:var(--bg)}
+body{
+  font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+}
 
+.nav .btn {
+  color: #fff !important;
+}
+
+.brand img {
+  height: 45px;           /* Adjust as needed */
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .brand img {
+    height: 36px;         /* Slightly smaller for mobile */
+  }
+}
 .container{max-width:1100px;margin:0 auto;padding:0 20px}
 .section{padding:64px 0}
 .section.alt{background:var(--alt)}
@@ -33,7 +52,11 @@ h2{font-size: clamp(1.4rem, 1rem + 1vw, 2rem); margin:0 0 8px}
 .btn.outline{background:transparent;color:var(--text);border:1px solid var(--border);box-shadow:none}
 .btn:focus{outline:3px solid rgba(181,201,184,.5); outline-offset:2px}
 
-.site-header{position:sticky; top:0; z-index:50; background:rgba(255, 246, 251, 0.8); backdrop-filter: blur(8px); border-bottom:1px solid var(--border)}
+.site-header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(255, 246, 251, 0.8); backdrop-filter: blur(8px);
+  border-bottom:1px solid var(--border)
+}
 .nav{display:flex; align-items:center; justify-content:space-between; height:56px}
 .brand{font-weight:700; text-decoration:none; color:inherit}
 .links{display:flex; gap:18px; align-items:center}
@@ -55,8 +78,10 @@ h2{font-size: clamp(1.4rem, 1rem + 1vw, 2rem); margin:0 0 8px}
 
 .form{display:grid; gap:16px}
 .row{display:grid; grid-template-columns:1fr; gap:16px}
-.full textarea, .form input, .form textarea{width:100%; padding:12px 14px; border:1px solid var(--border); border-radius:10px}
-.form label span{display:block; font-size:.9rem; color:var(--muted); margin-bottom:6px}
+.full textarea, .form input, .form textarea{
+  width:100%; padding:12px 14px; border:1px solid var(--border); border-radius:10px
+}
+.form label span{display:block; font-size:.9rem; color:var(--muted); margin-bottom:2px}
 
 .site-footer{border-top:1px solid var(--border); padding:28px 0; background:#fff}
 .footer-inner{display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap}
@@ -75,4 +100,128 @@ h2{font-size: clamp(1.4rem, 1rem + 1vw, 2rem); margin:0 0 8px}
 @media (max-width: 767px){
   .hamburger{display:block}
   .links{display:none}
+}
+
+/* Ensure anything with [hidden] is actually hidden (overrides grid/flex rules) */
+[hidden]{ display:none !important; }
+
+/* --- Compact card selector (roles & event types) --- */
+.role-options, .option-cards{
+  display:flex; flex-direction:column;
+  gap:8px; margin:8px 0 20px;
+}
+
+/* Hide native radios */
+.role-options input[type="radio"], .option-cards input[type="radio"]{ display:none; }
+
+/* Card */
+.role-options label, .option-cards label{
+  display:flex; align-items:center; gap:10px;
+  padding:10px 14px; border:1px solid #eadede; border-radius:10px;
+  cursor:pointer; background:#fffaf9; color:#3d3d3d;
+  transition:all .2s ease; box-shadow:0 1px 3px rgba(0,0,0,.04);
+  font-size:.95rem;
+}
+.role-options label:hover, .option-cards label:hover,
+.role-options label:focus-within, .option-cards label:focus-within{
+  border-color:#b5c9b8; background:#fcf7f6;
+}
+.role-options input[type="radio"]:checked + label,
+.option-cards input[type="radio"]:checked + label{
+  background:#b5c9b8; border-color:#b5c9b8; color:#fff;
+  box-shadow:0 1px 5px rgba(0,0,0,.08);
+}
+
+/* Letter badge */
+.role-options .letter, .option-cards .letter{
+  font-weight:600; font-size:.8rem; display:inline-flex; align-items:center; justify-content:center;
+  width:24px; height:24px; border-radius:6px; background:#b5c9b8; color:#fff; flex-shrink:0;
+}
+.role-options input[type="radio"]:checked + label .letter,
+.option-cards input[type="radio"]:checked + label .letter{
+  background:#fff; color:#b5c9b8;
+}
+
+/* Small wrapper to control spacing inside a single form field */
+.field{ display:grid; gap:6px; }           /* default internal gap */
+.field-tight{ gap:4px; margin-bottom:14px; }  /* tighter for this one */
+
+.inline-radios{
+  display:flex; gap:20px; align-items:center;
+  margin:0; padding:0;                      /* no extra space */
+}
+.inline-radios label{
+  display:inline-flex; align-items:center; gap:8px; cursor:pointer;
+}
+.inline-radios input[type="radio"]{
+  margin:0 6px 0 0; width:18px; height:18px; accent-color:var(--accent);
+}
+
+
+/* Chip-style checkbox grid (multi-select) */
+.chips-grid{
+  display:grid; 
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:10px; 
+  margin:8px 0 22px;
+}
+.chips-grid input[type="checkbox"]{ display:none; }
+.chips-grid label{
+  display:flex; 
+  align-items:center;
+  justify-content: center;
+  text-align: center; 
+  gap:8px;
+  padding:10px 14px; 
+  border:1px solid #eadede; 
+  border-radius:999px;
+  background:#fffaf9; 
+  color:#38423b; 
+  cursor:pointer; 
+  transition:.2s;
+  box-shadow:0 1px 2px rgba(0,0,0,.04); 
+  font-size:.95rem;
+}
+.chips-grid input[type="checkbox"]:checked + label{
+  background:#b5c9b8; 
+  border-color:#b5c9b8; 
+  color:#fff;
+}
+
+/* Upload box (images only UI) */
+.upload-wrap{ margin:8px 0 24px; }
+.upload-box{
+  display:flex; 
+  align-items:center; 
+  gap:14px; padding:18px; 
+  width:100%;
+  border:2px dashed #e4d7d7; 
+  border-radius:12px; 
+  background:#fffaf9; 
+  cursor:pointer;
+}
+.upload-box:hover{ 
+  border-color:#b5c9b8; 
+  background:#fcf7f6; 
+}
+.upload-box .icon{
+  width:40px; 
+  height:40px; 
+  border-radius:10px; 
+  background:#b5c9b8; 
+  color:#fff;
+  display:flex; 
+  align-items:center; 
+  justify-content:center; 
+  font-weight:700;
+}
+.upload-title{ font-weight:600; }
+.upload-sub{ 
+  color:#7a7a7a; 
+  font-size:.9rem; 
+}
+.upload-list{ 
+  margin-top:6px; 
+  color:#555; 
+  font-size:.9rem; 
 }
