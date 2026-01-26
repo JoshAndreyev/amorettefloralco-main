@@ -1,13 +1,13 @@
-/* Basic, responsive, accessible styles */
 :root{
-  --bg:#fff6fb;
-  --text:#1f2937;
-  --muted:#6b7280;
-  --accent:#58641f; /* sage */
-  --border:#e5e7eb;
-  --alt:#fafaf9;
-  --radius:14px;
-  --shadow:0 6px 18px rgba(0,0,0,.06);
+  --bg:#1e3608;       /* deep olive background */
+  --panel:#203b09;    /* slightly varied panel tone */
+  --text:#ffffff;
+  --muted:rgba(255,255,255,.78);
+  --accent:#58641f;   /* olive button */
+  --border:rgba(255,255,255,.14);
+  --radius:18px;
+  --shadow:0 10px 26px rgba(0,0,0,.20);
+  --radio-accent:#c9d46a; /* soft chartreuse for radio accents */
 }
 
 *{box-sizing:border-box}
@@ -18,176 +18,350 @@ body{
   background:var(--bg);
 }
 
-.nav .btn {
-  color: #fff !important;
-}
-
-.brand img {
-  height: 45px;           /* Adjust as needed */
-  width: auto;
-  display: block;
-}
-
-@media (max-width: 768px) {
-  .brand img {
-    height: 36px;         /* Slightly smaller for mobile */
-  }
-}
 .container{max-width:1100px;margin:0 auto;padding:0 20px}
 .section{padding:64px 0}
-.section.alt{background:var(--alt)}
+.section.alt{background:transparent}
 .narrow{max-width:720px;margin:0 auto}
 
-h1,h2{font-family: ui-serif, Georgia, 'Times New Roman', Times, serif;}
-h1{font-size: clamp(1.9rem, 1.2rem + 2vw, 3rem); margin:0 0 12px}
-h2{font-size: clamp(1.4rem, 1rem + 1vw, 2rem); margin:0 0 8px}
+/* Tighten the gap from hero CTA to Gallery */
+#work.section{ padding-top:40px; }
+
+.section-eyebrow{
+  font-size:.85rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.72);
+  margin:0 0 10px;
+}
+
+.about-media{display:block}
+
+/* Typography */
+h1,h2{
+  font-family:'Cormorant Garamond', Georgia, 'Times New Roman', Times, serif;
+  letter-spacing: .01em;
+}
+h1{font-size: clamp(2.0rem, 1.2rem + 2.2vw, 3.2rem); margin:0 0 12px; line-height:1.05}
+h2{font-size: clamp(1.6rem, 1.1rem + 1vw, 2.1rem); margin:0 0 10px}
 .sub{color:var(--muted);margin:6px 0 24px}
 
+/* Buttons */
 .btn{
-  background:var(--accent); color:#fff; border:none;
-  padding:12px 18px; border-radius:10px; display:inline-block;
-  text-decoration:none; font-weight:600; box-shadow:var(--shadow); cursor:pointer;
+  background:var(--accent);
+  color:#fff;
+  border:none;
+  padding:12px 18px;
+  border-radius:12px;
+  display:inline-block;
+  text-decoration:none;
+  font-weight:650;
+  box-shadow:var(--shadow);
+  cursor:pointer;
 }
-.btn:hover{opacity:.95}
-.btn.outline{background:transparent;color:var(--text);border:1px solid var(--border);box-shadow:none}
-.btn:focus{outline:3px solid rgba(181,201,184,.5); outline-offset:2px}
+.btn:hover{ opacity:.95 }
+.btn:focus{ outline:3px solid rgba(255,246,251,.35); outline-offset:2px }
 
+.btn.outline{
+  background:transparent;
+  color:#fff;
+  border:1px solid rgba(255,255,255,.55);
+  box-shadow:none;
+}
+
+/* Header / Nav */
 .site-header{
   position:sticky; top:0; z-index:50;
-  background:rgba(255, 246, 251, 0.8); backdrop-filter: blur(8px);
-  border-bottom:1px solid var(--border)
-}
-.nav{display:flex; align-items:center; justify-content:space-between; height:56px}
-.brand{font-weight:700; text-decoration:none; color:inherit}
-.links{display:flex; gap:18px; align-items:center}
-.links a{color:inherit; text-decoration:none}
-.hamburger{display:none; background:none; border:none; font-size:22px}
-
-.hero{padding:56px 0 40px}
-.hero h1, p {
-  color: #58641f;
+  background: rgba(30,54,8,.7);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid var(--border);
 }
 
-.hero-inner{
-  display:grid; 
-  grid-template-columns:1fr; 
-  gap:24px; 
-  align-items:center
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  height:64px;
+  gap:14px;
 }
 
-.hero-media img{
-  width:100%; 
-  height:auto; 
-  border-radius:var(--radius); 
-  box-shadow:var(--shadow)
+.brand img{
+  height:45px;
+  width:auto;
+  display:block;
+}
+
+.links{
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
+
+.links a{
+  color:#fff;
+  text-decoration:none;
+  opacity:.92;
+}
+
+.links a:hover{ opacity:1 }
+
+.nav-cta{ padding:10px 16px; border-radius:12px; }
+
+.hamburger{
+  display:none;
+  background: rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.16);
+  color:#fff;
+  font-size:20px;
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  cursor:pointer;
+}
+
+/* Mobile nav panel */
+.mobile-nav{
+  border-top:1px solid var(--border);
+  background: rgba(30,54,8,.92);
+  overflow:hidden;
+}
+
+/* optional: JS adds .is-open for consistent behavior across browsers */
+.mobile-nav.is-open{ display:block; }
+.mobile-nav-inner{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  padding:16px 20px 20px;
+}
+.mobile-nav a{
+  color:#fff;
+  text-decoration:none;
+  opacity:.92;
+}
+.mobile-nav a:hover{ opacity:1 }
+
+/* Hero stacked */
+.hero-stacked{ padding:0; }
+
+.hero-image{
+  position:relative;
+}
+
+.hero-image img{
+  width:100%;
+  height:70vh;
+  object-fit:cover;
+  display:block;
+}
+
+.hero-content{
+  background: var(--bg);
+  padding: 44px 0 40px;
+}
+
+.hero-content p{
+  color: rgba(255,255,255,.88);
+  max-width: 640px;
 }
 
 .cta{
-  display:flex; 
-  gap:12px; 
-  margin-top:10px
+  display:flex;
+  gap:12px;
+  margin-top:18px;
+  flex-wrap:wrap;
 }
 
-.grid{
-  display:grid; 
-  grid-template-columns:repeat(1,1fr); 
-  gap:16px
+/* ===== Work carousel: 3-up like reference ===== */
+.gallery2-head h2 { color: #fff; } /* adjust if your background changes */
+
+.gallery2-viewport {
+  overflow: hidden;
+  touch-action: pan-y;
+
+  /*
+    iOS Safari sometimes flickers (re-rasterizes) large images inside
+    transformed elements while the page is scrolling.
+    Forcing the carousel into its own composited layer + paint containment
+    significantly reduces that.
+  */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  contain: paint;
 }
 
-.grid img{
-  width:100%; 
-  height:240px; 
-  object-fit:cover; 
-  border-radius:14px
+.gallery2-track{
+  display: flex;
+  gap: 18px;              /* keep this — JS reads it */
+  transition: transform 240ms ease-out; /* important */
+  will-change: transform;
+  overflow: visible;      /* NOT scroll-based */
+
+  /* Reduce iOS Safari flicker during page scroll */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
+.gallery2-shell{
+  position: relative;
+  margin-top: 12px;
+}
+
+/* slide sizing: 3 across on desktop */
+.gallery2-slide{
+  flex: 0 0 calc((100% - 36px) / 3); /* 3 slides, 2 gaps of 18px = 36px */
+  scroll-snap-align: start;
+}
+
+.gallery2-slide img{
+  width: 100%;
+  height: 460px;                    /* set the visual height */
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+  box-shadow: var(--shadow);
+
+  /* Reduce iOS Safari flicker */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Arrows overlay left/right like your screenshot */
+.g2-btn{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.92);
+  color: #111;
+  font-size: 22px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 28px rgba(0,0,0,.18);
+  z-index: 2;
+}
+
+.g2-prev{ left: 14px; }
+.g2-next{ right: 14px; }
+
+.g2-btn:hover{ background: #fff; }
+.g2-btn:disabled{
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+/* Responsive: 2 across on tablet */
+@media (max-width: 980px){
+  .gallery2-slide{
+    flex: 0 0 calc((100% - 18px) / 2);
+  }
+  .gallery2-slide img{
+    height: 420px;
+  }
+}
+
+/* Responsive: 1 across on mobile */
+@media (max-width: 640px){
+  .gallery2-track{ gap: 14px; }
+  .gallery2-slide{ flex: 0 0 100%; }
+  /*
+    Avoid vh on mobile Safari (address bar show/hide changes vh while scrolling,
+    which can cause the gallery image to "refresh" / flicker).
+  */
+  .gallery2-slide img{
+    height: auto;
+    aspect-ratio: 4 / 5;
+    max-height: 520px;
+  }
+
+  .g2-btn{
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+  }
+  .g2-prev{ left: 10px; }
+  .g2-next{ right: 10px; }
+}
+
+
+/* About */
 .about{
-  display:grid; 
-  grid-template-columns:1fr; 
-  gap:24px; 
-  align-items:center
+  display:grid;
+  grid-template-columns:1fr;
+  gap:24px;
+  align-items:center;
 }
 
 .about-photo{
-  width:100%; 
-  height:320px; 
-  object-fit:cover; 
-  border-radius:14px; 
-  box-shadow:var(--shadow)
+  width:100%;
+  height:340px;
+  object-fit:cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
-.list{
-  margin:12px 0 0; 
-  padding-left:18px
-}
+.about p{ color: rgba(255,255,255,.88); }
 
-.list li{
-  margin:6px 0
-}
+/* Contact */
+#contact h2{ color:#fff; }
+#contact .sub{ color: rgba(255,255,255,.80); }
 
-.form{
-  display:grid; 
-  gap:16px
-}
+.form{ display:grid; gap:16px; }
 
 .row{
-  display:grid; 
-  grid-template-columns:1fr; 
-  gap:16px
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
 }
 
-.full textarea, .form input, .form textarea{
-  width:100%; 
-  padding:12px 14px; 
-  border:1px solid var(--border); 
-  border-radius:10px
+.form input, .form textarea{
+  width:100%;
+  padding:12px 14px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:12px;
+  background: rgba(255,255,255,.06);
+  color:#fff;
 }
+
+.form textarea{ resize:vertical; }
+
 .form label span{
-  display:block; 
-  font-size:.9rem; 
-  color:var(--muted); 
-  margin-bottom:2px
+  display:block;
+  font-size:.92rem;
+  color: rgba(255,255,255,.82);
+  margin-bottom:4px;
 }
 
+/* Footer */
 .site-footer{
-  border-top:1px solid var(--border); 
-  padding:28px 0; 
-  background:#fff6fb
+  border-top:1px solid var(--border);
+  padding:28px 0;
+  background: rgba(0,0,0,.08);
 }
 .footer-inner{
-  display:flex; 
-  justify-content:space-between; 
-  align-items:center; 
-  gap:16px; 
-  flex-wrap:wrap
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
 }
-.small{
-  color:var(--muted); 
-  font-size:.9rem
-}
-
-/* Medium+ screens */
-@media (min-width: 768px){
-  .hero-inner{grid-template-columns:1.1fr .9fr}
-  .grid{grid-template-columns:repeat(3,1fr)}
-  .about{grid-template-columns: .9fr 1.1fr}
-  .row{grid-template-columns:1fr 1fr}
-  .hamburger{display:none}
-}
-
-/* Mobile nav (hidden in this minimal starter; hook up in script.js if needed) */
-@media (max-width: 767px){
-  .hamburger{display:block}
-  .links{display:none}
-}
-
-/* Ensure anything with [hidden] is actually hidden (overrides grid/flex rules) */
-[hidden]{ display:none !important; }
+.small{ color: rgba(255,255,255,.72); font-size:.92rem }
+.site-footer a{ color:#fff; }
 
 /* --- Compact card selector (roles & event types) --- */
 .role-options, .option-cards{
-  display:flex; flex-direction:column;
-  gap:8px; margin:8px 0 20px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin:8px 0 20px;
 }
 
 /* Hide native radios */
@@ -195,112 +369,115 @@ h2{font-size: clamp(1.4rem, 1rem + 1vw, 2rem); margin:0 0 8px}
 
 /* Card */
 .role-options label, .option-cards label{
-  display:flex; align-items:center; gap:10px;
-  padding:10px 14px; border:1px solid #eadede; border-radius:10px;
-  cursor:pointer; background:#fffaf9; color:#3d3d3d;
-  transition:all .2s ease; box-shadow:0 1px 3px rgba(0,0,0,.04);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 14px;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:12px;
+  cursor:pointer;
+  background: rgba(255,255,255,.06);
+  color:#fff;
+  transition:all .2s ease;
+  box-shadow:0 1px 3px rgba(0,0,0,.10);
   font-size:.95rem;
 }
+
 .role-options label:hover, .option-cards label:hover,
 .role-options label:focus-within, .option-cards label:focus-within{
-  border-color:#b5c9b8; background:#fcf7f6;
+  border-color: rgba(255,255,255,.32);
+  background: rgba(255,255,255,.09);
 }
+
 .role-options input[type="radio"]:checked + label,
 .option-cards input[type="radio"]:checked + label{
-  background:#58641f; border-color:#58641f; color:#fff;
-  box-shadow:0 1px 5px rgba(0,0,0,.08);
+  background: rgba(255,255,255,.16);
+  border-color: rgba(255,255,255,.40);
 }
 
 /* Letter badge */
 .role-options .letter, .option-cards .letter{
-  font-weight:600; font-size:.8rem; display:inline-flex; align-items:center; justify-content:center;
-  width:24px; height:24px; border-radius:6px; background:#58641f; color:#fff; flex-shrink:0;
-}
-.role-options input[type="radio"]:checked + label .letter,
-.option-cards input[type="radio"]:checked + label .letter{
-  background:#fff; color:#58641f;
+  font-weight:700;
+  font-size:.8rem;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:24px;
+  height:24px;
+  border-radius:8px;
+  background: rgba(255,255,255,.22);
+  color:#fff;
+  flex-shrink:0;
 }
 
-/* Small wrapper to control spacing inside a single form field */
-.field{ display:grid; gap:6px; }           /* default internal gap */
-.field-tight{ gap:4px; margin-bottom:14px; }  /* tighter for this one */
+/* Field spacing */
+.field{ display:grid; gap:6px; }
+.field-tight{ gap:4px; margin-bottom:14px; }
 
+/* Inline radios */
 .inline-radios{
-  display:flex; gap:20px; align-items:center;
-  margin:0; padding:0;                      /* no extra space */
+  display:flex;
+  gap:20px;
+  align-items:center;
+  margin:0;
+  padding:0;
 }
-.inline-radios label{
-  display:inline-flex; align-items:center; gap:8px; cursor:pointer;
-}
+.inline-radios label{ display:inline-flex; align-items:center; gap:8px; cursor:pointer; }
 .inline-radios input[type="radio"]{
-  margin:0 6px 0 0; width:18px; height:18px; accent-color:var(--accent);
+  margin:0 6px 0 0;
+  width:18px;
+  height:18px;
+  accent-color: var(--radio-accent);
 }
 
-
-/* Chip-style checkbox grid (multi-select) */
+/* Chip-style checkbox grid */
 .chips-grid{
-  display:grid; 
+  display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:10px; 
+  gap:10px;
   margin:8px 0 22px;
 }
 .chips-grid input[type="checkbox"]{ display:none; }
 .chips-grid label{
-  display:flex; 
+  display:flex;
   align-items:center;
-  justify-content: center;
-  text-align: center; 
-  gap:8px;
-  padding:10px 14px; 
-  border:1px solid #eadede; 
+  justify-content:center;
+  text-align:center;
+  padding:10px 14px;
+  border:1px solid rgba(255,255,255,.16);
   border-radius:999px;
-  background:#fffaf9; 
-  color:#38423b; 
-  cursor:pointer; 
+  background: rgba(255,255,255,.06);
+  color:#fff;
+  cursor:pointer;
   transition:.2s;
-  box-shadow:0 1px 2px rgba(0,0,0,.04); 
+  box-shadow:0 1px 2px rgba(0,0,0,.10);
   font-size:.95rem;
 }
 .chips-grid input[type="checkbox"]:checked + label{
-  background:#58641f; 
-  border-color:#58641f; 
-  color:#fff;
+  background: rgba(255,255,255,.16);
+  border-color: rgba(255,255,255,.35);
 }
 
-/* Upload box (images only UI) */
-.upload-wrap{ margin:8px 0 24px; }
-.upload-box{
-  display:flex; 
-  align-items:center; 
-  gap:14px; padding:18px; 
-  width:100%;
-  border:2px dashed #e4d7d7; 
-  border-radius:12px; 
-  background:#fffaf9; 
-  cursor:pointer;
+/* Responsive */
+@media (min-width: 768px){
+  .row{ grid-template-columns:1fr 1fr; }
+  .about{ grid-template-columns: .9fr 1.1fr; }
 }
-.upload-box:hover{ 
-  border-color:#b5c9b8; 
-  background:#fcf7f6; 
+
+@media (max-width: 767px){
+  .links{ display:none; }
+  .hamburger{ display:inline-flex; align-items:center; justify-content:center; }
+  .hero-image img{ height:55vh; }
+  .brand img{ height:38px; }
+
+  /* Reduce repaint cost on iOS while scrolling */
+  .site-header{
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(30,54,8,.95);
+  }
 }
-.upload-box .icon{
-  width:40px; 
-  height:40px; 
-  border-radius:10px; 
-  background:#b5c9b8; 
-  color:#fff;
-  display:flex; 
-  align-items:center; 
-  justify-content:center; 
-  font-weight:700;
-}
-.upload-title{ font-weight:600; }
-.upload-sub{ 
-  color:#7a7a7a; 
-  font-size:.9rem; 
-}
-.upload-list{ 
-  margin-top:6px; 
-  color:#555; 
-  font-size:.9rem; 
-}
+
+
+/* Prevent background scroll when mobile menu is open */
+body.menu-open{ overflow:hidden; }
