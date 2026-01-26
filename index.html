@@ -122,106 +122,106 @@
         <div class="row">
           <label class="full">
             <span>Your Name <sup>*</sup></span>
-            <input name="name" type="text" placeholder="Full name" required />
+            <input name="Name" type="text" placeholder="Full name" required />
           </label>
 
           <label>
             <span>Email <sup>*</sup></span>
-            <input name="email" type="email" required placeholder="you@email.com" />
+            <input name="Email" type="email" required placeholder="you@email.com" />
           </label>
         </div>
 
         <div class="row">
           <label>
             <span>Phone Number</span>
-            <input name="phone" type="tel" inputmode="tel" placeholder="(555) 555-1234" />
+            <input name="Phone" type="tel" inputmode="tel" placeholder="(555) 555-1234" />
           </label>
           <label>
             <span>Estimated Guest Count</span>
-            <input name="guest_count" type="number" min="1" step="1" placeholder="e.g., 120" />
+            <input name="Guest Count" type="number" min="1" step="1" placeholder="e.g., 120" />
           </label>
         </div>
 
         <!-- I am... -->
         <label><span>I am <sup>*</sup></span></label>
         <div class="role-options" id="iamGroup">
-          <input type="radio" id="role-bride" name="role" value="Bride" required>
+          <input type="radio" id="role-bride" name="I am the" value="Bride" required>
           <label for="role-bride"><span class="letter">A</span>The Bride</label>
 
-          <input type="radio" id="role-groom" name="role" value="Groom">
+          <input type="radio" id="role-groom" name="I am the" value="Groom">
           <label for="role-groom"><span class="letter">B</span>The Groom</label>
 
-          <input type="radio" id="role-planner" name="role" value="Planner">
+          <input type="radio" id="role-planner" name="I am the" value="Planner">
           <label for="role-planner"><span class="letter">C</span>The Planner</label>
 
-          <input type="radio" id="role-host" name="role" value="Host">
+          <input type="radio" id="role-host" name="I am the" value="Host">
           <label for="role-host"><span class="letter">D</span>Host</label>
 
-          <input type="radio" id="role-other" name="role" value="Other">
+          <input type="radio" id="role-other" name="I am the" value="Other">
           <label for="role-other"><span class="letter">E</span>Other</label>
         </div>
 
         <div class="row" id="iamOtherWrap" hidden>
           <label class="full">
             <span>Please specify your role</span>
-            <input id="iamOther" name="role_other" placeholder="e.g., Parent, friend, or other..." disabled />
+            <input id="iamOther" name="Other Role Name" placeholder="e.g., Parent, friend, or other..." disabled />
           </label>
         </div>
 
         <!-- Event Type -->
         <label><span>Event Type <sup>*</sup></span></label>
         <div class="option-cards" id="eventType">
-          <input type="radio" id="evt-wedding" name="event_type" value="Wedding" required>
+          <input type="radio" id="evt-wedding" name="Event Type" value="Wedding" required>
           <label for="evt-wedding"><span class="letter">A</span>Wedding</label>
 
-          <input type="radio" id="evt-elopement" name="event_type" value="Elopement">
+          <input type="radio" id="evt-elopement" name="Event Type" value="Elopement">
           <label for="evt-elopement"><span class="letter">B</span>Elopement</label>
 
-          <input type="radio" id="evt-baby" name="event_type" value="Baby Shower">
+          <input type="radio" id="evt-baby" name="Event Type" value="Baby Shower">
           <label for="evt-baby"><span class="letter">C</span>Baby Shower</label>
 
-          <input type="radio" id="evt-bridal" name="event_type" value="Bridal Shower">
+          <input type="radio" id="evt-bridal" name="Event Type" value="Bridal Shower">
           <label for="evt-bridal"><span class="letter">D</span>Bridal Shower</label>
 
-          <input type="radio" id="evt-corp" name="event_type" value="Corporate Event">
+          <input type="radio" id="evt-corp" name="Event Type" value="Corporate Event">
           <label for="evt-corp"><span class="letter">E</span>Corporate Event</label>
 
-          <input type="radio" id="evt-other" name="event_type" value="Other">
+          <input type="radio" id="evt-other" name="Event Type" value="Other">
           <label for="evt-other"><span class="letter">F</span>Other</label>
         </div>
 
         <div class="row" id="eventTypeOtherWrap" hidden>
           <label class="full">
             <span>Please describe the event</span>
-            <input id="eventTypeOther" name="event_type_other" placeholder="e.g., Anniversary party, proposal, quinceañera…" disabled />
+            <input id="eventTypeOther" name="Other Type Event" placeholder="e.g., Anniversary party, proposal, quinceañera…" disabled />
           </label>
         </div>
 
         <div class="row" id="coupleNamesWrap" hidden>
           <label class="full">
             <span>Names of the couple</span>
-            <input id="coupleNames" name="couple_names" placeholder="e.g., Alex & Jordan" disabled />
+            <input id="coupleNames" name="Name of Couple" placeholder="e.g., Alex & Jordan" disabled />
           </label>
         </div>
 
         <!-- Floral Items -->
         <label><span>Floral items you’re interested in</span></label>
         <div class="chips-grid">
-          <input type="checkbox" id="fi-bouquet" name="floral_items[]" value="Bridal Bouquet"><label for="fi-bouquet">Bridal Bouquet</label>
-          <input type="checkbox" id="fi-brides" name="floral_items[]" value="Bridesmaid Bouquets"><label for="fi-brides">Bridesmaid Bouquets</label>
-          <input type="checkbox" id="fi-bouts" name="floral_items[]" value="Boutonnieres"><label for="fi-bouts">Boutonnieres</label>
-          <input type="checkbox" id="fi-arch" name="floral_items[]" value="Ceremony Arch"><label for="fi-arch">Ceremony Arch</label>
-          <input type="checkbox" id="fi-aisle" name="floral_items[]" value="Aisle Florals"><label for="fi-aisle">Aisle Florals</label>
-          <input type="checkbox" id="fi-centers" name="floral_items[]" value="Centerpieces"><label for="fi-centers">Centerpieces</label>
-          <input type="checkbox" id="fi-install" name="floral_items[]" value="Floral Installations"><label for="fi-install">Floral Installations</label>
-          <input type="checkbox" id="fi-sweet" name="floral_items[]" value="Sweetheart Table"><label for="fi-sweet">Sweetheart Table</label>
-          <input type="checkbox" id="fi-cake" name="floral_items[]" value="Cake Florals"><label for="fi-cake">Cake Florals</label>
-          <input type="checkbox" id="fi-other" name="floral_items[]" value="Other"><label for="fi-other">Other</label>
+          <input type="checkbox" id="fi-bouquet" name="Floral Items Wanted" value="Bridal Bouquet"><label for="fi-bouquet">Bridal Bouquet</label>
+          <input type="checkbox" id="fi-brides" name="Floral Items Wanted" value="Bridesmaid Bouquets"><label for="fi-brides">Bridesmaid Bouquets</label>
+          <input type="checkbox" id="fi-bouts" name="Floral Items Wanted" value="Boutonnieres"><label for="fi-bouts">Boutonnieres</label>
+          <input type="checkbox" id="fi-arch" name="Floral Items Wanted" value="Ceremony Arch"><label for="fi-arch">Ceremony Arch</label>
+          <input type="checkbox" id="fi-aisle" name="Floral Items Wanted" value="Aisle Florals"><label for="fi-aisle">Aisle Florals</label>
+          <input type="checkbox" id="fi-centers" name="Floral Items Wanted" value="Centerpieces"><label for="fi-centers">Centerpieces</label>
+          <input type="checkbox" id="fi-install" name="Floral Items Wanted" value="Floral Installations"><label for="fi-install">Floral Installations</label>
+          <input type="checkbox" id="fi-sweet" name="Floral Items Wanted" value="Sweetheart Table"><label for="fi-sweet">Sweetheart Table</label>
+          <input type="checkbox" id="fi-cake" name="Floral Items Wanted" value="Cake Florals"><label for="fi-cake">Cake Florals</label>
+          <input type="checkbox" id="fi-other" name="Floral Items Wanted" value="Other"><label for="fi-other">Other</label>
         </div>
 
         <label class="full">
           <span>Send your inspo as a link (Pinterest, Google Drive, etc.)</span>
-          <input name="inspo_url" type="url" placeholder="https://pinterest.com/your-board" />
+          <input name="Inspo URL" type="url" placeholder="https://pinterest.com/your-board" />
         </label>
 
         <div class="row">
@@ -231,36 +231,41 @@
           </label>
           <label>
             <span>Venue / Location</span>
-            <input name="venue" placeholder="Venue or city" />
+            <input name="Venue" placeholder="Venue or city" />
           </label>
         </div>
 
         <div class="row">
           <label>
-            <span>Budget</span>
-            <input name="budget" placeholder="e.g. $3,000–$5,000" />
-          </label>
-          <label>
+          <span>Budget</span>
+          <select name="budget" required>
+            <option value="" disabled selected>Select your budget range</option>
+            <option value="$3,000–$5,000">$3,000–$5,000</option>
+            <option value="$5,000–$8,000">$5,000–$8,000</option>
+            <option value="$8,000–$12,000">$8,000–$12,000</option>
+            <option value="$12,000+">Over $12,000</option>
+          </select>
+        </label>
             <span>How did you hear about us?</span>
-            <input name="referral" placeholder="Instagram, friend, etc." />
+            <input name="Referral" placeholder="Instagram, friend, etc." />
           </label>
         </div>
 
         <label class="full">
           <span>What are you envisioning?</span>
-          <textarea name="vision" rows="5" placeholder="Palette, must-have florals…"></textarea>
+          <textarea name="Vision" rows="5" placeholder="Palette, must-have florals…"></textarea>
         </label>
 
         <label class="full">
           <span>Any other notes, floral must-haves, or things we should know?</span>
-          <textarea name="notes" rows="5" placeholder="Anything else you'd like us to know..."></textarea>
+          <textarea name="Notes" rows="5" placeholder="Anything else you'd like us to know..."></textarea>
         </label>
 
         <div class="field field-tight">
           <label><span>Would you like to schedule a discovery call? <sup>*</sup></span></label>
           <div class="inline-radios" id="discoCall">
-            <label><input type="radio" name="discovery_call" value="Yes" required><span>Yes</span></label>
-            <label><input type="radio" name="discovery_call" value="No"><span>No</span></label>
+            <label><input type="radio" name="Discovery Call" value="Yes" required><span>Yes</span></label>
+            <label><input type="radio" name="Discovery Call" value="No"><span>No</span></label>
           </div>
         </div>
 
