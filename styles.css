@@ -1,7 +1,10 @@
 :root{
-  --bg:#1e3608;       /* deep olive background */
+  --bg:#fff0f0;       /* deep olive background */
+  /*#d8c7d5;
+  #58641f
   --panel:#203b09;    /* slightly varied panel tone */
-  --text:#ffffff;
+  --light_green_text:#58641f;
+  --text:#1e3608;
   --muted:rgba(255,255,255,.78);
   --accent:#58641f;   /* olive button */
   --border:rgba(255,255,255,.14);
@@ -9,6 +12,12 @@
   --shadow:0 10px 26px rgba(0,0,0,.20);
   --radio-accent:#c9d46a; /* soft chartreuse for radio accents */
 }
+
+/* Force the HTML `hidden` attribute to actually hide elements */
+[hidden]{
+  display: none !important;
+}
+
 
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
@@ -47,7 +56,7 @@ h2{font-size: clamp(1.6rem, 1.1rem + 1vw, 2.1rem); margin:0 0 10px}
 
 /* Buttons */
 .btn{
-  background:var(--accent);
+  background:var(--text);
   color:#fff;
   border:none;
   padding:12px 18px;
@@ -63,7 +72,7 @@ h2{font-size: clamp(1.6rem, 1.1rem + 1vw, 2.1rem); margin:0 0 10px}
 
 .btn.outline{
   background:transparent;
-  color:#fff;
+  color:var(--text);
   border:1px solid rgba(255,255,255,.55);
   box-shadow:none;
 }
@@ -71,7 +80,7 @@ h2{font-size: clamp(1.6rem, 1.1rem + 1vw, 2.1rem); margin:0 0 10px}
 /* Header / Nav */
 .site-header{
   position:sticky; top:0; z-index:50;
-  background: rgba(30,54,8,.7);
+  background-color: #fff0f0 ;
   backdrop-filter: blur(10px);
   border-bottom:1px solid var(--border);
 }
@@ -85,7 +94,7 @@ h2{font-size: clamp(1.6rem, 1.1rem + 1vw, 2.1rem); margin:0 0 10px}
 }
 
 .brand img{
-  height:45px;
+  height:225px;
   width:auto;
   display:block;
 }
@@ -97,9 +106,12 @@ h2{font-size: clamp(1.6rem, 1.1rem + 1vw, 2.1rem); margin:0 0 10px}
 }
 
 .links a{
-  color:#fff;
+  color: var(--text);
   text-decoration:none;
   opacity:.92;
+}
+.links .nav-cta{
+  color:#fff;
 }
 
 .links a:hover{ opacity:1 }
@@ -156,11 +168,11 @@ h2{font-size: clamp(1.6rem, 1.1rem + 1vw, 2.1rem); margin:0 0 10px}
 
 .hero-content{
   background: var(--bg);
+  color: var(--text);
   padding: 44px 0 40px;
 }
 
 .hero-content p{
-  color: rgba(255,255,255,.88);
   max-width: 640px;
 }
 
@@ -308,11 +320,11 @@ h2{font-size: clamp(1.6rem, 1.1rem + 1vw, 2.1rem); margin:0 0 10px}
   box-shadow: var(--shadow);
 }
 
-.about p{ color: rgba(255,255,255,.88); }
+.about p{ color: var(--text); }
 
 /* Contact */
-#contact h2{ color:#fff; }
-#contact .sub{ color: rgba(255,255,255,.80); }
+#contact h2{ color: var(--text); }
+#contact .sub{ color: var(--text); }
 
 .form{ display:grid; gap:16px; }
 
@@ -325,10 +337,10 @@ h2{font-size: clamp(1.6rem, 1.1rem + 1vw, 2.1rem); margin:0 0 10px}
 .form input, .form textarea{
   width:100%;
   padding:12px 14px;
-  border:1px solid rgba(255,255,255,.18);
-  border-radius:12px;
   background: rgba(255,255,255,.06);
-  color:#fff;
+  border:1px solid var(--text);
+  border-radius:12px;
+  color:var(--text);
 }
 
 .form textarea{ resize:vertical; }
@@ -336,7 +348,7 @@ h2{font-size: clamp(1.6rem, 1.1rem + 1vw, 2.1rem); margin:0 0 10px}
 .form label span{
   display:block;
   font-size:.92rem;
-  color: rgba(255,255,255,.82);
+  color: var(--text);
   margin-bottom:4px;
 }
 
@@ -377,7 +389,7 @@ h2{font-size: clamp(1.6rem, 1.1rem + 1vw, 2.1rem); margin:0 0 10px}
   border-radius:12px;
   cursor:pointer;
   background: rgba(255,255,255,.06);
-  color:#fff;
+  color:var(--text);
   transition:all .2s ease;
   box-shadow:0 1px 3px rgba(0,0,0,.10);
   font-size:.95rem;
@@ -391,7 +403,8 @@ h2{font-size: clamp(1.6rem, 1.1rem + 1vw, 2.1rem); margin:0 0 10px}
 
 .role-options input[type="radio"]:checked + label,
 .option-cards input[type="radio"]:checked + label{
-  background: rgba(255,255,255,.16);
+  background: var(--text);
+  color: #fff;
   border-color: rgba(255,255,255,.40);
 }
 
@@ -406,7 +419,7 @@ h2{font-size: clamp(1.6rem, 1.1rem + 1vw, 2.1rem); margin:0 0 10px}
   height:24px;
   border-radius:8px;
   background: rgba(255,255,255,.22);
-  color:#fff;
+  color:var(--text);
   flex-shrink:0;
 }
 
@@ -427,7 +440,7 @@ h2{font-size: clamp(1.6rem, 1.1rem + 1vw, 2.1rem); margin:0 0 10px}
   margin:0 6px 0 0;
   width:18px;
   height:18px;
-  accent-color: var(--radio-accent);
+  accent-color: var(--text);
 }
 
 /* Chip-style checkbox grid */
@@ -447,14 +460,15 @@ h2{font-size: clamp(1.6rem, 1.1rem + 1vw, 2.1rem); margin:0 0 10px}
   border:1px solid rgba(255,255,255,.16);
   border-radius:999px;
   background: rgba(255,255,255,.06);
-  color:#fff;
+  color:var(--text);
   cursor:pointer;
   transition:.2s;
   box-shadow:0 1px 2px rgba(0,0,0,.10);
   font-size:.95rem;
 }
 .chips-grid input[type="checkbox"]:checked + label{
-  background: rgba(255,255,255,.16);
+  background: var(--text);
+  color: #fff;
   border-color: rgba(255,255,255,.35);
 }
 
@@ -474,7 +488,7 @@ h2{font-size: clamp(1.6rem, 1.1rem + 1vw, 2.1rem); margin:0 0 10px}
   .site-header{
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-    background: rgba(30,54,8,.95);
+    background: var(--bg);
   }
 }
 
@@ -508,3 +522,45 @@ body.menu-open{ overflow:hidden; }
     display: none;
   }
 }
+
+/* Center the logo (brand) in the header */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;     /* Center everything horizontally */
+  height: 64px;
+  gap: 14px;
+  position: relative;
+}
+
+/* Position nav-cta and hamburger absolutely on the right */
+.links,
+.hamburger {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Center the logo brand */
+.brand {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 767px) {
+  .links { display: none; }
+  .hamburger {
+    display: inline-flex;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+  }
+  .brand img {
+    height: 195px;
+  }
+}
+
