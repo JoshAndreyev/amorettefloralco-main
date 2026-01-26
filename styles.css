@@ -534,13 +534,28 @@ body.menu-open{ overflow:hidden; }
 }
 
 /* Position nav-cta and hamburger absolutely on the right */
-.links,
-.hamburger {
-  position: absolute;
-  right: 20px;
-  top: 50%;
+.links {
+  position: fixed;
+  right: 0;
+  top: 32px; /* half the header height (64px / 2) */
   transform: translateY(-50%);
+  z-index: 100;
+  padding-right: 32px; /* nice spacing from window edge */
 }
+
+@media (max-width: 1100px) {
+  .links {
+    padding-right: 20px; /* match .container on smaller screens */
+  }
+}
+@media (max-width: 767px) {
+  .links {
+    display: none;
+    position: static;
+    padding-right: 0;
+  }
+}
+
 
 /* Center the logo brand */
 .brand {
