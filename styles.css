@@ -628,8 +628,6 @@ body.menu-open{ overflow:hidden; }
   color: rgba(30, 54, 8, 0.55); /* matches input placeholder softness */
 }
 
-
-
 /* Focus styling consistent with your buttons */
 .form select:focus{
   outline:3px solid rgba(255,246,251,.35);
@@ -641,5 +639,3 @@ body.menu-open{ overflow:hidden; }
 .form select{
   font-size: 1rem;
 }
-
-
