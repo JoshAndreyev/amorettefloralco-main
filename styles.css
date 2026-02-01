@@ -356,7 +356,7 @@ h2{font-size: clamp(1.6rem, 1.1rem + 1vw, 2.1rem); margin:0 0 10px}
 .site-footer{
   border-top:1px solid var(--border);
   padding:28px 0;
-  background: rgba(0,0,0,.08);
+  background: var(--bg);
 }
 .footer-inner{
   display:flex;
@@ -365,8 +365,21 @@ h2{font-size: clamp(1.6rem, 1.1rem + 1vw, 2.1rem); margin:0 0 10px}
   gap:16px;
   flex-wrap:wrap;
 }
-.small{ color: rgba(255,255,255,.72); font-size:.92rem }
-.site-footer a{ color:#fff; }
+.small{ color: var(--text); font-size:.92rem }
+
+.site-footer a {
+  color: #0066cc;          /* classic hyperlink blue */
+  text-decoration: underline;
+}
+
+.site-footer a:visited {
+  color: #551a8b;          /* classic visited link purple (optional) */
+}
+
+.site-footer a:hover {
+  color: #004999;
+}
+
 
 /* --- Compact card selector (roles & event types) --- */
 .role-options, .option-cards{
@@ -578,4 +591,55 @@ body.menu-open{ overflow:hidden; }
     height: 195px;
   }
 }
+
+/* Make selects match inputs */
+.form select{
+  width:100%;
+  padding:12px 14px;
+  background: rgba(255,255,255,.06);
+  border:1px solid var(--text);
+  border-radius:12px;
+  color: var(--text);
+  font: inherit;
+  line-height: normal; /* key fix */
+  height: auto;
+
+  box-shadow: none;
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--text) 50%),
+    linear-gradient(135deg, var(--text) 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) 50%,
+    calc(100% - 14px) 50%;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+
+  padding-right: 44px;
+}
+
+
+.form select:invalid {
+  color: rgba(30, 54, 8, 0.55); /* matches input placeholder softness */
+}
+
+
+
+/* Focus styling consistent with your buttons */
+.form select:focus{
+  outline:3px solid rgba(255,246,251,.35);
+  outline-offset:2px;
+}
+
+.form input,
+.form textarea,
+.form select{
+  font-size: 1rem;
+}
+
 
