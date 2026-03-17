@@ -383,7 +383,16 @@ h2{font-size: clamp(1.6rem, 1.1rem + 1vw, 2.1rem); margin:0 0 10px}
 }
 
 /* Hide native radios */
-.role-options input[type="radio"], .option-cards input[type="radio"]{ display:none; }
+.role-options input[type="radio"],
+.option-cards input[type="radio"],
+.chips-grid input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  margin: 0;
+}
 
 /* Card */
 .role-options label, .option-cards label{
@@ -396,7 +405,6 @@ h2{font-size: clamp(1.6rem, 1.1rem + 1vw, 2.1rem); margin:0 0 10px}
   cursor:pointer;
   background: rgba(255,255,255,.06);
   color:var(--text);
-  transition:all .2s ease;
   box-shadow:0 1px 3px rgba(0,0,0,.10);
   font-size:.95rem;
 }
@@ -468,7 +476,6 @@ h2{font-size: clamp(1.6rem, 1.1rem + 1vw, 2.1rem); margin:0 0 10px}
   background: rgba(255,255,255,.06);
   color:var(--text);
   cursor:pointer;
-  transition:.2s;
   box-shadow:0 1px 2px rgba(0,0,0,.10);
   font-size:.95rem;
 }
