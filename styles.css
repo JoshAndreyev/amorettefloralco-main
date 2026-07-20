@@ -584,7 +584,7 @@ body.menu-open{ overflow:hidden; }
 }
 
 .form select:invalid {
-  color: rgba(30, 54, 8, 0.55);
+  color: #999;
 }
 
 /* Focus styling consistent with your buttons */
